@@ -10,7 +10,7 @@ git branch: 'master', url: 'https://github.com/swetha8998/nodejs_docker_jenkins.
 }
 stage('Build'){
   steps{
-sh 'echo "in building stage"'
+sh 'docker build  . -f Dockerfile -t swet/nodeapp'
   }
 }
 stage('Approval'){
