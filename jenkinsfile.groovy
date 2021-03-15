@@ -3,7 +3,7 @@ pipeline{
     dockerfile true
   }
  environment{
-  dockerImage =''
+  def dockerImage =''
  }
 stages{
 stage('git'){
