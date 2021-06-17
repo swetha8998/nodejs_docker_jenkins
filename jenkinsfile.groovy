@@ -15,7 +15,7 @@ stage('Build'){
   steps{
    script{
      sh 'docker build . -f Dockerfile -t hello-world-node'
-     sh 'sudo aws --version'
+     sh 'aws --version'
    // sh 'aws ecr-public create-repository --repository-name ${STACKNAME}'
    //  sh 'docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}'
     // sh 'docker push ${ECR_REGISTRY}/${STACKNAME}:${version}'
