@@ -1,3 +1,7 @@
+final STACKNAME= 'Hello-World-node'
+final ACCOUNT= '993745358053'
+final ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
+version = currentBuild.number
 pipeline{
 agent any
 
@@ -13,6 +17,10 @@ stage('Build'){
 
    
    sh 'docker build  . -f Dockerfile -t swet/nodeapp'
+     sh 'aws ecr-public create-repository --repository-name ${STACKNAME}'
+     sh 'docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}'
+     sh 'docker push ${ECR_REGISTRY}/${STACKNAME}:${version}'
+     sh 'echo "image is pushed" '
    }
   }
 }
