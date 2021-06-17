@@ -16,7 +16,7 @@ stage('Build'){
    script{
 
    
-     sh 'docker build  . -f Dockerfile -t ${STACKNAME}'
+     sh 'docker build -t ${STACKNAME} .'
      sh 'aws ecr-public create-repository --repository-name ${STACKNAME}'
      sh 'docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}'
      sh 'docker push ${ECR_REGISTRY}/${STACKNAME}:${version}'
