@@ -14,7 +14,7 @@ git branch: 'master', url: 'https://github.com/swetha8998/nodejs_docker_jenkins.
 stage('Build'){
   steps{
    script{
-     sh 'docker build . -f Dockerfile -t Hello-World-node'
+     sh 'docker build . -f Dockerfile -t hello-world-node'
      sh 'aws ecr-public create-repository --repository-name ${STACKNAME}'
      sh 'docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}'
      sh 'docker push ${ECR_REGISTRY}/${STACKNAME}:${version}'
