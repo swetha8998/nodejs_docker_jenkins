@@ -1,4 +1,4 @@
-def STACKNAME= 'Hello-World-node'
+def STACKNAME= 'hello-world-node'
 def ACCOUNT= '993745358053'
 def ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
 def version = currentBuild.number
