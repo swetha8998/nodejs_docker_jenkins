@@ -1,10 +1,6 @@
 pipeline{
- agent {
-    dockerfile true
-  }
- environment{
-  def dockerImage =''
- }
+
+
 stages{
 stage('git'){
   steps{
@@ -14,9 +10,10 @@ git branch: 'master', url: 'https://github.com/swetha8998/nodejs_docker_jenkins.
 stage('Build'){
   steps{
    script{
-dockerImage=docker.build nodeapp
+
+   
+   sh 'docker build  . -f Dockerfile -t swet/nodeapp'
    }
-   //sh 'docker build  . -f Dockerfile -t swet/nodeapp'
   }
 }
 stage('Approval'){
