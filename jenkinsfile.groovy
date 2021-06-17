@@ -1,7 +1,7 @@
-final STACKNAME= 'Hello-World-node'
-final ACCOUNT= '993745358053'
-final ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
-version = currentBuild.number
+def STACKNAME= 'Hello-World-node'
+def ACCOUNT= '993745358053'
+def ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
+def version = currentBuild.number
 pipeline{
 agent any
 
