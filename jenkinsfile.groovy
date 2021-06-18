@@ -23,8 +23,8 @@ stage('Build'){
    //  sh "echo ${var}"
      sh " aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY} "
    // sh "aws ecr-public create-repository --repository-name ${STACKNAME}"
-     sh "docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}"
-     sh "docker push ${ECR_REGISTRY}/${STACKNAME}"
+     sh "docker tag hello-world-node:latest public.ecr.aws/e6i8t7v2/hello-world-node:latest"
+     sh "docker push public.ecr.aws/e6i8t7v2/hello-world-node:latest"
      sh 'echo "image is pushed"'
    }
   }
