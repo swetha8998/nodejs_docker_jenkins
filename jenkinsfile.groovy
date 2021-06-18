@@ -18,6 +18,7 @@ stage('Build'){
      //def var='hi'
      sh 'docker build . -f Dockerfile -t hello-world-node'
      sh 'aws --version'
+    sh 'aws configure set region us-east-1'
    //  sh "echo ${var}"
     sh "aws ecr-public create-repository --repository-name ${STACKNAME}"
      sh "docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}"
