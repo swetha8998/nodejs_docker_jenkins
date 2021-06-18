@@ -15,14 +15,14 @@ stage('Build'){
   steps{
    script{
   // def STACKNAME= 'hello-world-node'
-     def var='hi'
+     //def var='hi'
      sh 'docker build . -f Dockerfile -t hello-world-node'
      sh 'aws --version'
      sh "echo ${var}"
-    //sh 'aws ecr-public create-repository --repository-name ${STACKNAME}'
-     //sh 'docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}'
-     //sh 'docker push ${ECR_REGISTRY}/${STACKNAME}:${version}'
-     //sh 'echo "image is pushed" '
+    sh "aws ecr-public create-repository --repository-name ${STACKNAME}"
+     sh "docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}"
+     sh "docker push ${ECR_REGISTRY}/${STACKNAME}:${version}"
+     sh 'echo "image is pushed"'
    }
   }
 }
