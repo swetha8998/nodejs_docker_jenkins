@@ -20,6 +20,7 @@ stage('Build'){
      sh 'aws --version'
     sh 'aws configure set region us-east-1'
    //  sh "echo ${var}"
+     sh " aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY} "
     sh "aws ecr-public create-repository --repository-name ${STACKNAME}"
      sh "docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}"
      sh "docker push ${ECR_REGISTRY}/${STACKNAME}:${version}"
