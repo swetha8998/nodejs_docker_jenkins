@@ -1,6 +1,6 @@
-def STACKNAME= 'hello-world-node'
-def ACCOUNT= '993745358053'
-def ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
+final STACKNAME= 'hello-world-node'
+final ACCOUNT= '993745358053'
+final ECR_REGISTRY='993745358053.dkr.ecr.us-east-1.amazonaws.com'
 def version = currentBuild.number
 pipeline{
 agent any
@@ -14,7 +14,7 @@ git branch: 'master', url: 'https://github.com/swetha8998/nodejs_docker_jenkins.
 stage('Build'){
   steps{
    script{
-   def STACKNAME= 'hello-world-node'
+  // def STACKNAME= 'hello-world-node'
      sh 'docker build . -f Dockerfile -t hello-world-node'
      sh 'aws --version'
      sh 'echo ${STACKNAME}'
