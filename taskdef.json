@@ -12,7 +12,7 @@
                "awslogs-group" : "/ecs/fargate-task-definition",
                "awslogs-region": "us-east-1",
                "awslogs-stream-prefix": "ecs"
-            },
+            }},
             "portMappings": [
                 {
                     "containerPort": 70, 
