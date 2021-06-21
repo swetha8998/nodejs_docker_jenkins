@@ -7,8 +7,8 @@
             "image": "hello-world-node:latest", 
             "portMappings": [
                 {
-                    "containerPort": "70", 
-                    "hostPort": "70", 
+                    "containerPort": 70, 
+                    "hostPort": 70, 
                     "protocol": "tcp"
                 }
             ], 
