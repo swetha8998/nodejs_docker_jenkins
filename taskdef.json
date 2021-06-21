@@ -11,7 +11,7 @@
         "options": {
           "awslogs-group": "/ecs/sample-fargate",
           "awslogs-region": "us-east-1",
-          "awgs-stream-prefix": "ecs"
+          "awslogs-stream-prefix": "ecs"
         }
       },
             "portMappings": [
