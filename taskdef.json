@@ -4,7 +4,7 @@
     "containerDefinitions": [
         {
             "name": "fargate-app", 
-            "image": "hello-world-node:latest", 
+            "image": "993745358053.dkr.ecr.us-east-1.amazonaws.com/hello-world-node", 
             "portMappings": [
                 {
                     "containerPort": 70, 
