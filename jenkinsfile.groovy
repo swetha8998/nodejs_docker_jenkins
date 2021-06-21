@@ -45,7 +45,13 @@ sh 'echo "in deployment stage" '
     sh "aws ecs create-cluster --cluster-name fargate-cluster"
     sh "aws ecs register-task-definition --cli-input-json file://taskdef.json"
    sh "aws ecs list-task-definitions"
-    sh " aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type \"FARGATE\" --network-configuration \"awsvpcConfiguration={subnets=[subnet-4c6fb07d],securityGroups=[sg-1579811d],assignPublicIp=ENABLED}\""
+      taskdefcount=sh(script:"aws ecs list-task-definitions --family-prefix sample-fargate",returnStdout:true)
+   //println taskdefcount
+    def slurper = new groovy.json.JsonSlurperClassic()
+    taskdefcount= slurper.parseText(taskdefcount)
+    taskdefcount=taskdefcount.taskDefinitionArns.size()
+    //println "taskdefcount parsed:${taskdefcount}"
+    sh " aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:${taskdefcount} --desired-count 1 --launch-type \"FARGATE\" --network-configuration \"awsvpcConfiguration={subnets=[subnet-4c6fb07d],securityGroups=[sg-1579811d],assignPublicIp=ENABLED}\""
  sh "aws ecs list-services --cluster fargate-cluster"
      timeout(time: 15, unit: "MINUTES") {
     input message: 'Do you want to  remove the cluster it ?', ok: 'Yes'
