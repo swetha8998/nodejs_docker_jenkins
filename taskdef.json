@@ -9,7 +9,7 @@
 		   "logConfiguration": {
         "logDriver": "awslogs",
         "secretOptions": null,
-        "options": {slo
+        "options": {
           "awslogs-group": "/ecs/sample-fargate",
           "awslogs-region": "us-east-1",
           "awgs-stream-prefix": "ecs"
