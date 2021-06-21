@@ -8,7 +8,6 @@
             "image": "993745358053.dkr.ecr.us-east-1.amazonaws.com/hello-world-node", 
 		   "logConfiguration": {
         "logDriver": "awslogs",
-        "secretOptions": null,
         "options": {
           "awslogs-group": "/ecs/sample-fargate",
           "awslogs-region": "us-east-1",
