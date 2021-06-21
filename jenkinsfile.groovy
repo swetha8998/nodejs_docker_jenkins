@@ -41,6 +41,7 @@ sh 'echo "in approval stage" '
 }
 stage('Deploy'){
   steps{
+    script{
 sh 'echo "in deployment stage" '
     sh "aws ecs create-cluster --cluster-name fargate-cluster"
     sh "aws ecs register-task-definition --cli-input-json file://taskdef.json"
@@ -57,6 +58,7 @@ sh 'echo "in deployment stage" '
     input message: 'Do you want to  remove the cluster it ?', ok: 'Yes'
   sh "aws ecs delete-cluster --cluster fargate-cluster"
   }
+    }
   
   }
 }
