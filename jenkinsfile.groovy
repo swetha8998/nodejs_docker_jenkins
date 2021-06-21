@@ -38,6 +38,7 @@ sh 'echo "in approval stage" '
 
   }
 }
+}
 stage('Deploy'){
   steps{
 sh 'echo "in deployment stage" '
@@ -45,4 +46,4 @@ sh 'echo "in deployment stage" '
 }
  }
  
-}
+
