@@ -26,7 +26,7 @@ stage('Build'){
       sh "docker tag ${STACKNAME}:latest ${ECR_REGISTRY}/${STACKNAME}"
      sh "docker push ${ECR_REGISTRY}/${STACKNAME}"
      sh 'echo "image is pushed"'
-     sh "docker rmi ${ECR_REGISTRY} ${STACKNAME}"
+   //  sh "docker rmi ${ECR_REGISTRY} ${STACKNAME}"
    }
   }
 }
