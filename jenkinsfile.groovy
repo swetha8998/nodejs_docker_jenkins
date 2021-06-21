@@ -33,6 +33,8 @@ stage('Build'){
 stage('Approval'){
   steps{
 sh 'echo "in approval stage" '
+  timeout(time: 15, unit: "MINUTES") {
+    input message: 'Do you want to  deploy it ?', ok: 'Yes'
 
   }
 }
