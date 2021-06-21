@@ -43,7 +43,12 @@ stage('Deploy'){
   steps{
     script{
 sh 'echo "in deployment stage" '
-    sh "aws ecs create-cluster --cluster-name fargate-cluster"
+      try{
+          sh "aws ecs create-cluster --cluster-name fargate-cluster"
+      } catch(Exception e){
+      println e
+      } 
+   
     sh "aws ecs register-task-definition --cli-input-json file://taskdef.json"
    sh "aws ecs list-task-definitions"
   
