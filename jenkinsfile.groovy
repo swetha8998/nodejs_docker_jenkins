@@ -53,10 +53,7 @@ sh 'echo "in deployment stage" '
    sh "aws ecs list-task-definitions"
   
       sh "aws ecs list-services --cluster fargate-cluster"
-     timeout(time: 15, unit: "MINUTES") {
-    input message: 'Do you want to  remove the cluster it ?', ok: 'Yes'
-  sh "aws ecs delete-cluster --cluster fargate-cluster"
-  }
+  
     }
   
   }
