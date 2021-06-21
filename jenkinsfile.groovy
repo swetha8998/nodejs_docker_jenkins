@@ -48,7 +48,7 @@ sh 'echo "in deployment stage" '
     sh " aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type \"FARGATE\" --network-configuration \"awsvpcConfiguration={subnets=[subnet-4c6fb07d],securityGroups=[sg-1579811d],assignPublicIp=ENABLED}\""
  sh "aws ecs list-services --cluster fargate-cluster"
      timeout(time: 15, unit: "MINUTES") {
-    input message: 'Do you want to  deploy it ?', ok: 'Yes'
+    input message: 'Do you want to  remove the cluster it ?', ok: 'Yes'
   sh "aws ecs delete-cluster --cluster fargate-cluster"
   }
   
